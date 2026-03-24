@@ -98,7 +98,25 @@ Vite、Nuxt 和 Webpack 的实现共享相同的配置选项：
 1. **构建时**：插件会生成一个包含当前构建时间戳的 `version.json` 文件。
 2. **在浏览器中**：一段轻量级的脚本会被注入到你的 `index.html` 中。
 3. **运行时**：该脚本会定期获取 `version.json`（绕过缓存），并将远程版本与加载时的版本进行比较。
-4. **通知**：如果发现版本不一致，会显示一个 UI 通知，并在短暂延迟后自动刷新页面。当页面从隐藏状态重新变为可见时，它也会立即进行一次检查。
+4. **通知**：如果发现版本不一致，会显示一个 UI 通知。用户可以选择“稍后更新”以暂停刷新，或点击“立即刷新”快速加载新版本。当页面从隐藏状态重新变为可见时，它也会立即进行一次检查。
+
+## 部署建议 (Nginx 配置)
+
+为了确保用户在页面刷新时总是能获取到最新的 `index.html`（从而加载到最新的 JS/CSS 资源），强烈建议在 Nginx 中配置 **不缓存 `index.html`**：
+
+```nginx
+server {
+    # 不缓存 index.html，确保每次刷新都拉取最新内容
+    location / {
+        try_files $uri $uri/ /index.html;
+        
+        if ($request_filename ~* ^.*?.(html|htm)$) {
+            expires -1;
+            add_header Cache-Control "no-cache, no-store, must-revalidate";
+        }
+    }
+}
+```
 
 ## 开源协议
 
