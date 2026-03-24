@@ -29,7 +29,12 @@
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "prepublishOnly": "pnpm build",
+    "release": "pnpm publish --access public",
+    "release:patch": "npm version patch && pnpm publish --access public",
+    "release:minor": "npm version minor && pnpm publish --access public",
+    "release:major": "npm version major && pnpm publish --access public"
   },
   "keywords": [
     "vite",

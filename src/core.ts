@@ -34,22 +34,54 @@ export function generateScript(version: string, checkInterval: number, base: str
                   🚀
               </div>
               <div style="display: flex; flex-direction: column; gap: 8px;">
-                  <div style="font-size: 20px; font-weight: 600; color: #303133;">\\u53d1\\u73b0\\u65b0\\u7248\\u672c</div>
-                  <div style="font-size: 14px; color: #606266;">\\u7cfb\\u7edf\\u5df2\\u66f4\\u65b0\\uff0c\\u5c06\\u5728 5 \\u79d2\\u540e\\u81ea\\u52a8\\u5237\\u65b0</div>
+                  <div style="font-size: 20px; font-weight: 600; color: #303133;">发现新版本</div>
+                  <div style="font-size: 14px; color: #606266;">系统已更新，将在 <span id="update-countdown">5</span> 秒后自动刷新</div>
               </div>
               <div style="width: 100%; height: 4px; background: #f2f3f5; border-radius: 2px; overflow: hidden; margin-top: 8px;">
-                  <div style="height: 100%; background: #409eff; animation: progress 5s linear forwards;"></div>
+                  <div id="update-progress-bar" style="height: 100%; background: #409eff; animation: progress 5s linear forwards;"></div>
+              </div>
+              <div style="display: flex; gap: 12px; margin-top: 12px; width: 100%;">
+                  <button id="update-cancel-btn" style="flex: 1; padding: 8px 16px; border: 1px solid #dcdfe6; background: #fff; color: #606266; border-radius: 4px; cursor: pointer; font-size: 14px; transition: all 0.2s;">稍后更新</button>
+                  <button id="update-confirm-btn" style="flex: 1; padding: 8px 16px; border: none; background: #409eff; color: #fff; border-radius: 4px; cursor: pointer; font-size: 14px; transition: all 0.2s;">立即刷新</button>
               </div>
               <style>
                   @keyframes progress { from { width: 0%; } to { width: 100%; } }
+                  #update-cancel-btn:hover { background: #f5f7fa; color: #409eff; border-color: #c6e2ff; }
+                  #update-confirm-btn:hover { background: #66b1ff; }
               </style>
           \`;
           
           document.body.appendChild(div);
           
-          setTimeout(() => {
-              window.location.reload();
-          }, 5000);
+          let countdown = 5;
+          const countdownEl = document.getElementById('update-countdown');
+          const cancelBtn = document.getElementById('update-cancel-btn');
+          const confirmBtn = document.getElementById('update-confirm-btn');
+          const progressBar = document.getElementById('update-progress-bar');
+          
+          let timer = setInterval(() => {
+              countdown--;
+              if (countdownEl) countdownEl.innerText = countdown.toString();
+              if (countdown <= 0) {
+                  clearInterval(timer);
+                  window.location.reload();
+              }
+          }, 1000);
+          
+          if (cancelBtn) {
+              cancelBtn.onclick = () => {
+                  clearInterval(timer);
+                  if (progressBar) progressBar.style.animationPlayState = 'paused';
+                  document.body.removeChild(div);
+              };
+          }
+          
+          if (confirmBtn) {
+              confirmBtn.onclick = () => {
+                  clearInterval(timer);
+                  window.location.reload();
+              };
+          }
         }
 
         function checkUpdate() {
