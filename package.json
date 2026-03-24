@@ -38,6 +38,14 @@
     "update",
     "notice"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaobailong007/web-update-notice-plugin.git"
+  },
+  "homepage": "https://github.com/xiaobailong007/web-update-notice-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/xiaobailong007/web-update-notice-plugin/issues"
+  },
   "author": "",
   "license": "MIT",
   "devDependencies": {
