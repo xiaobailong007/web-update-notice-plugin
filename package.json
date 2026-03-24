@@ -1,0 +1,55 @@
+{
+  "name": "@xiaobailong/web-update-notice-plugin",
+  "version": "1.0.0",
+  "description": "A plugin that notifies users to refresh the page when a new version is deployed. Supports Vite, Nuxt and Webpack.",
+  "main": "./dist/vite.js",
+  "module": "./dist/vite.mjs",
+  "types": "./dist/vite.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/vite.d.ts",
+      "require": "./dist/vite.js",
+      "import": "./dist/vite.mjs"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "require": "./dist/vite.js",
+      "import": "./dist/vite.mjs"
+    },
+    "./nuxt": {
+      "types": "./dist/nuxt.d.ts",
+      "require": "./dist/nuxt.js",
+      "import": "./dist/nuxt.mjs"
+    },
+    "./webpack": {
+      "types": "./dist/webpack.d.ts",
+      "require": "./dist/webpack.js",
+      "import": "./dist/webpack.mjs"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "keywords": [
+    "vite",
+    "plugin",
+    "vite-plugin",
+    "update",
+    "notice"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nuxt/kit": "^4.4.2",
+    "@nuxt/schema": "^4.4.2",
+    "html-webpack-plugin": "^5.6.6",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.0",
+    "webpack": "^5.105.4"
+  },
+  "peerDependencies": {
+    "vite": ">=2.0.0"
+  }
+}
