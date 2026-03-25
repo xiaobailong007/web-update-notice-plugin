@@ -1,7 +1,7 @@
 export interface Options {
   /**
    * Interval to check for updates (in milliseconds)
-   * @default 5 * 60 * 1000 (5 minutes)
+   * @default 1 * 60 * 1000 (1 minutes)
    */
   checkInterval?: number;
   /**

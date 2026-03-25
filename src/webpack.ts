@@ -8,7 +8,7 @@ export class WebUpdateNoticePlugin {
 
   constructor(options: Options = {}) {
     this.options = {
-      checkInterval: 5 * 60 * 1000,
+      checkInterval: 1 * 60 * 1000,
       base: '/',
       ...options,
     };

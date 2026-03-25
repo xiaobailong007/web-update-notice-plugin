@@ -5,34 +5,46 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vite.js",
+  "main": "./dist/vite.cjs",
   "module": "./dist/vite.mjs",
-  "types": "./dist/vite.d.ts",
+  "types": "./dist/vite.d.cts",
   "exports": {
     ".": {
-      "types": "./dist/vite.d.ts",
-      "require": "./dist/vite.js",
+      "types": {
+        "require": "./dist/vite.d.cts",
+        "import": "./dist/vite.d.mts"
+      },
+      "require": "./dist/vite.cjs",
       "import": "./dist/vite.mjs"
     },
     "./vite": {
-      "types": "./dist/vite.d.ts",
-      "require": "./dist/vite.js",
+      "types": {
+        "require": "./dist/vite.d.cts",
+        "import": "./dist/vite.d.mts"
+      },
+      "require": "./dist/vite.cjs",
       "import": "./dist/vite.mjs"
     },
     "./nuxt": {
-      "types": "./dist/nuxt.d.ts",
-      "require": "./dist/nuxt.js",
+      "types": {
+        "require": "./dist/nuxt.d.cts",
+        "import": "./dist/nuxt.d.mts"
+      },
+      "require": "./dist/nuxt.cjs",
       "import": "./dist/nuxt.mjs"
     },
     "./webpack": {
-      "types": "./dist/webpack.d.ts",
-      "require": "./dist/webpack.js",
+      "types": {
+        "require": "./dist/webpack.d.cts",
+        "import": "./dist/webpack.d.mts"
+      },
+      "require": "./dist/webpack.cjs",
       "import": "./dist/webpack.mjs"
     }
   },
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "vp pack",
+    "dev": "vp pack --watch",
     "prepublishOnly": "pnpm build",
     "release": "pnpm publish --access public",
     "release:patch": "npm version patch && pnpm publish --access public",
@@ -60,9 +72,9 @@
     "@nuxt/kit": "^4.4.2",
     "@nuxt/schema": "^4.4.2",
     "html-webpack-plugin": "^5.6.6",
-    "tsup": "^8.0.2",
     "typescript": "^5.3.3",
     "vite": "^5.0.0",
+    "vite-plus": "^0.1.13",
     "webpack": "^5.105.4"
   },
   "peerDependencies": {

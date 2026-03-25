@@ -2,11 +2,11 @@ import type { Plugin } from 'vite';
 import { Options, generateScript } from './core';
 
 export function webUpdateNotice(options: Options = {}): Plugin {
-  const { checkInterval = 5 * 60 * 1000, base = '/' } = options;
+  const { checkInterval = 1 * 60 * 1000, base = '/' } = options;
   let version: string;
 
   return {
-    name: 'vite-plugin-web-update-notice',
+    name: 'vite-plugin-web-update-notice' as const,
     configResolved() {
       version = Date.now().toString();
     },

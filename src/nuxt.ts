@@ -7,7 +7,7 @@ export default defineNuxtModule<Options>({
     configKey: 'webUpdateNotice',
   },
   defaults: {
-    checkInterval: 5 * 60 * 1000,
+    checkInterval: 1 * 60 * 1000,
     base: '/',
   },
   setup(options, nuxt) {
