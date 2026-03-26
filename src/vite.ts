@@ -1,8 +1,7 @@
-import type { Plugin } from 'vite';
+import type { PluginOption } from 'vite';
 import { Options, generateScript } from './core';
 
-export function webUpdateNotice(options: Options = {}): Plugin {
-  const { checkInterval = 1 * 60 * 1000, base = '/' } = options;
+export function webUpdateNotice(options: Options = {}): PluginOption {
   let version: string;
 
   return {
@@ -23,7 +22,7 @@ export function webUpdateNotice(options: Options = {}): Plugin {
         tags: [
           {
             tag: 'script',
-            children: generateScript(version, checkInterval, base),
+            children: generateScript(version, options),
             injectTo: 'body',
           },
         ],

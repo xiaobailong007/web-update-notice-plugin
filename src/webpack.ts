@@ -7,11 +7,7 @@ export class WebUpdateNoticePlugin {
   private version: string;
 
   constructor(options: Options = {}) {
-    this.options = {
-      checkInterval: 1 * 60 * 1000,
-      base: '/',
-      ...options,
-    };
+    this.options = options;
     this.version = Date.now().toString();
   }
 
@@ -44,8 +40,7 @@ export class WebUpdateNoticePlugin {
           (data, cb) => {
             const scriptContent = generateScript(
               this.version,
-              this.options.checkInterval!,
-              this.options.base!
+              this.options
             );
 
             // Add script tag to body

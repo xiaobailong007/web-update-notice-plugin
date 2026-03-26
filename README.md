@@ -90,8 +90,26 @@ Vite、Nuxt 和 Webpack 的实现共享相同的配置选项：
 
 | 选项 | 类型 | 默认值 | 描述 |
 | --- | --- | --- | --- |
-| `checkInterval` | `number` | `300000` (5 分钟) | 脚本轮询检查更新的时间间隔（毫秒）。 |
+| `checkInterval` | `number` | `60000` (1 分钟) | 脚本轮询检查更新的时间间隔（毫秒）。 |
 | `base` | `string` | `'/'` | 你的应用部署的基础 URL 路径。用于构建获取 `version.json` 文件的 URL。 |
+| `autoRefresh` | `boolean` | `true` | 发现更新时是否显示进度条并在倒计时结束后自动刷新页面。设为 `false` 则需要用户手动刷新。 |
+| `showButtons` | `boolean` | `true` | 是否在通知弹窗中显示“稍后更新”和“立即刷新”按钮。 |
+| `text` | `object` | `{}` | 自定义弹窗文案配置（详情见下方说明）。 |
+
+### 自定义文案配置 (`text` 选项)
+
+你可以通过 `text` 选项自定义通知弹窗中的所有文案：
+
+```typescript
+webUpdateNotice({
+  text: {
+    title: '发现新版本', // 弹窗标题
+    desc: '系统已更新，请刷新页面', // 弹窗描述内容（如果 autoRefresh 为 true，默认会带有倒计时说明）
+    cancel: '稍后更新', // 取消按钮文案
+    confirm: '立即刷新' // 确认按钮文案
+  }
+})
+```
 
 ## 工作原理
 

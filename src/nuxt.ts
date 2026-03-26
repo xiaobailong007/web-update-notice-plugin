@@ -6,14 +6,8 @@ export default defineNuxtModule<Options>({
     name: 'web-update-notice',
     configKey: 'webUpdateNotice',
   },
-  defaults: {
-    checkInterval: 1 * 60 * 1000,
-    base: '/',
-  },
   setup(options, nuxt) {
     const version = Date.now().toString();
-    const checkInterval = options.checkInterval!;
-    const base = options.base!;
 
     // 1. Add a virtual server route to serve version.json
     const nuxtOptions = nuxt.options as any;
@@ -44,7 +38,7 @@ export default defineNuxtModule<Options>({
     nuxt.options.app.head.script = nuxt.options.app.head.script || [];
     nuxt.options.app.head.script.push({
       tagPosition: 'bodyClose',
-      innerHTML: generateScript(version, checkInterval, base),
+      innerHTML: generateScript(version, options),
     });
   },
 });
