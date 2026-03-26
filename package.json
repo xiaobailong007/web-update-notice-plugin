@@ -8,6 +8,10 @@
   "main": "./dist/vite.cjs",
   "module": "./dist/vite.mjs",
   "types": "./dist/vite.d.cts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": {
