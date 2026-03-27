@@ -10,8 +10,23 @@
   "types": "./dist/vite.d.cts",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
+  "size-limit": [
+    {
+      "path": "dist/vite.mjs",
+      "limit": "10 kB"
+    },
+    {
+      "path": "dist/nuxt.mjs",
+      "limit": "10 kB"
+    },
+    {
+      "path": "dist/webpack.mjs",
+      "limit": "10 kB"
+    }
+  ],
   "exports": {
     ".": {
       "types": {
@@ -49,11 +64,15 @@
   "scripts": {
     "build": "vp pack",
     "dev": "vp pack --watch",
-    "prepublishOnly": "pnpm build",
-    "release": "pnpm publish --access public",
-    "release:patch": "npm run prepublishOnly && npm version patch && pnpm publish --access public",
-    "release:minor": "npm version minor && pnpm publish --access public",
-    "release:major": "npm version major && pnpm publish --access public"
+    "test": "vp test",
+    "test:e2e": "vp test --mode e2e",
+    "check:exports": "publint",
+    "check:types": "attw --pack",
+    "check:size": "size-limit",
+    "check": "pnpm run check:exports && pnpm run check:types && pnpm run check:size",
+    "prepublishOnly": "pnpm run build && pnpm run check",
+    "release": "changeset publish",
+    "version": "changeset version"
   },
   "keywords": [
     "vite",
@@ -73,9 +92,14 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.2",
+    "@changesets/cli": "^2.30.0",
     "@nuxt/kit": "^4.4.2",
     "@nuxt/schema": "^4.4.2",
+    "@size-limit/preset-small-lib": "^12.0.1",
     "html-webpack-plugin": "^5.6.6",
+    "publint": "^0.3.18",
+    "size-limit": "^12.0.1",
     "typescript": "^5.3.3",
     "vite": "^5.0.0",
     "vite-plus": "^0.1.13",
