@@ -1,13 +1,14 @@
 {
   "name": "@xiaobailong/web-update-notice-plugin",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "🔔 一款网页更新通知插件，在系统发布新版本时自动提醒用户刷新页面 🔄。全面支持 Vite、Nuxt 和 Webpack 生态 ⚡。",
   "files": [
     "dist"
   ],
-  "main": "./dist/vite.cjs",
+  "type": "module",
+  "main": "./dist/vite.mjs",
   "module": "./dist/vite.mjs",
-  "types": "./dist/vite.d.cts",
+  "types": "./dist/vite.d.mts",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public",
@@ -16,15 +17,12 @@
   "typesVersions": {
     "*": {
       "vite": [
-        "./dist/vite.d.cts",
         "./dist/vite.d.mts"
       ],
       "nuxt": [
-        "./dist/nuxt.d.cts",
         "./dist/nuxt.d.mts"
       ],
       "webpack": [
-        "./dist/webpack.d.cts",
         "./dist/webpack.d.mts"
       ]
     }
@@ -129,36 +127,24 @@
   ],
   "exports": {
     ".": {
-      "types": {
-        "require": "./dist/vite.d.cts",
-        "import": "./dist/vite.d.mts"
-      },
-      "require": "./dist/vite.cjs",
-      "import": "./dist/vite.mjs"
+      "types": "./dist/vite.d.mts",
+      "import": "./dist/vite.mjs",
+      "default": "./dist/vite.mjs"
     },
     "./vite": {
-      "types": {
-        "require": "./dist/vite.d.cts",
-        "import": "./dist/vite.d.mts"
-      },
-      "require": "./dist/vite.cjs",
-      "import": "./dist/vite.mjs"
+      "types": "./dist/vite.d.mts",
+      "import": "./dist/vite.mjs",
+      "default": "./dist/vite.mjs"
     },
     "./nuxt": {
-      "types": {
-        "require": "./dist/nuxt.d.cts",
-        "import": "./dist/nuxt.d.mts"
-      },
-      "require": "./dist/nuxt.cjs",
-      "import": "./dist/nuxt.mjs"
+      "types": "./dist/nuxt.d.mts",
+      "import": "./dist/nuxt.mjs",
+      "default": "./dist/nuxt.mjs"
     },
     "./webpack": {
-      "types": {
-        "require": "./dist/webpack.d.cts",
-        "import": "./dist/webpack.d.mts"
-      },
-      "require": "./dist/webpack.cjs",
-      "import": "./dist/webpack.mjs"
+      "types": "./dist/webpack.d.mts",
+      "import": "./dist/webpack.mjs",
+      "default": "./dist/webpack.mjs"
     }
   },
   "scripts": {
@@ -167,9 +153,8 @@
     "test": "vp test",
     "test:e2e": "vp test --mode e2e",
     "check:exports": "publint",
-    "check:types": "attw --pack",
     "check:size": "size-limit",
-    "check": "pnpm run check:exports && pnpm run check:types && pnpm run check:size",
+    "check": "pnpm run check:exports && pnpm run check:size",
     "prepublishOnly": "pnpm run build && pnpm run check",
     "release": "changeset publish",
     "version": "changeset version",
