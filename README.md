@@ -4,7 +4,7 @@
 
 它的工作原理是在你的 HTML 中注入一段小脚本，定期检查版本变化。当检测到新版本时，它会显示一个友好的通知提示用户刷新，并在 5 秒后自动刷新页面。
 
-✨ **同时支持 Vite、Nuxt 3 和 Webpack！** ✨
+✨ **同时支持 Vite、Nuxt 3/4 和 Webpack！** ✨
 
 ## 安装
 
@@ -41,7 +41,7 @@ export default defineConfig({
 });
 ```
 
-### 在 Nuxt 3 项目中
+### 在 Nuxt 3/4 项目中
 
 将 `nuxt` 子路径的模块添加到你的 `nuxt.config.ts` 的 modules 数组中。你可以使用 `webUpdateNotice` 键来配置它：
 
@@ -135,6 +135,10 @@ server {
     }
 }
 ```
+
+## 关注公众号
+
+![公众号](https://cdn.xiaolong0418.com/app%2Fbase%2F1_1077902706_171_85_3_1093206066_098758147f2a9bb71af5a63ade20167e_fb7a1900ed7e491cb10375b6de613fca.png)
 
 ## 开源协议
 
