@@ -13,6 +13,13 @@
     "access": "public",
     "provenance": true
   },
+  "typesVersions": {
+    "*": {
+      "vite": ["./dist/vite.d.cts", "./dist/vite.d.mts"],
+      "nuxt": ["./dist/nuxt.d.cts", "./dist/nuxt.d.mts"],
+      "webpack": ["./dist/webpack.d.cts", "./dist/webpack.d.mts"]
+    }
+  },
   "size-limit": [
     {
       "path": "dist/vite.mjs",
