@@ -136,9 +136,11 @@ server {
 }
 ```
 
-## 关注公众号
+## 关注作者
 
-![公众号](https://raw.githubusercontent.com/xiaobailong007/web-update-notice-plugin/main/assets/qrcode.png)
+| 微信公众号 | 作者微信 |
+| :---: | :---: |
+| ![公众号](https://raw.githubusercontent.com/xiaobailong007/web-update-notice-plugin/main/assets/WeChatOfficialAccount.jpg) | ![微信](https://raw.githubusercontent.com/xiaobailong007/web-update-notice-plugin/main/assets/WeChat.png) |
 
 ## 开源协议
 
