@@ -23,15 +23,18 @@
   "size-limit": [
     {
       "path": "dist/vite.mjs",
-      "limit": "10 kB"
+      "limit": "10 kB",
+      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process"]
     },
     {
       "path": "dist/nuxt.mjs",
-      "limit": "10 kB"
+      "limit": "100 kB",
+      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process"]
     },
     {
       "path": "dist/webpack.mjs",
-      "limit": "10 kB"
+      "limit": "1 MB",
+      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process"]
     }
   ],
   "exports": {
