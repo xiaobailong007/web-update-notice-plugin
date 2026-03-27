@@ -35,7 +35,7 @@ yarn add @xiaobailong/web-update-notice-plugin -D
 
 ## 🚀 使用方法
 
-### ⚡️ 在 Vite 项目中
+### ⚡️ 在 Vite 项目中 (Vite 2+)
 
 从 `vite` 子路径导入插件，并将其添加到 `vite.config.ts` 中：
 
@@ -75,17 +75,17 @@ export default defineNuxtConfig({
 })
 ```
 
-### 🛠️ 在 Webpack 项目中
+### 🛠️ 在 Webpack 项目中 (Webpack 5+)
 
-从 `webpack` 子路径导入插件，并添加到 `webpack.config.js` 的 `plugins` 数组中。
-> **注意**：你需要配合 `html-webpack-plugin` 一起使用。
+从 `webpack` 子路径导入插件，并添加到 `webpack.config.js`（或 `webpack.config.mjs`）的 `plugins` 数组中。
+> **注意**：本插件目前为 **Pure ESM**，如果在 CommonJS 的配置环境（如 `webpack.config.js`）中使用，请确保使用动态 `import()` 或将配置文件改为 ESM 格式（`.mjs`）。
 
 ```javascript
-// webpack.config.js
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { WebUpdateNoticePlugin } = require('@xiaobailong/web-update-notice-plugin/webpack');
+// webpack.config.mjs
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { WebUpdateNoticePlugin } from '@xiaobailong/web-update-notice-plugin/webpack';
 
-module.exports = {
+export default {
   // ... 其他配置
   plugins: [
     new HtmlWebpackPlugin({

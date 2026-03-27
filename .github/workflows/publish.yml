@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           registry-url: 'https://registry.npmjs.org'
 
       - name: Setup pnpm
@@ -35,7 +35,7 @@ jobs:
         run: pnpm run test:e2e
 
       - name: Build and Check
-        run: pnpm run prepublishOnly
+        run: pnpm run build && pnpm run check
 
   publish:
     needs: test-and-build
@@ -58,7 +58,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
@@ -78,7 +78,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm run release
+          publish: pnpm publish --access public --no-git-checks
           commit: "chore(release): version packages"
           title: "chore(release): version packages"
         env:
