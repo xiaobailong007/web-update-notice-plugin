@@ -51,7 +51,7 @@
     "dev": "vp pack --watch",
     "prepublishOnly": "pnpm build",
     "release": "pnpm publish --access public",
-    "release:patch": "npm version patch && pnpm publish --access public",
+    "release:patch": "npm run prepublishOnly && npm version patch && pnpm publish --access public",
     "release:minor": "npm version minor && pnpm publish --access public",
     "release:major": "npm version major && pnpm publish --access public"
   },
