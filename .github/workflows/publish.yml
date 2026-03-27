@@ -78,7 +78,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm publish --access public --no-git-checks
+          publish: pnpm run release
           commit: "chore(release): version packages"
           title: "chore(release): version packages"
         env:
