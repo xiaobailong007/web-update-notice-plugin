@@ -1,7 +1,4 @@
-Object.defineProperties(exports, {
-	__esModule: { value: true },
-	[Symbol.toStringTag]: { value: "Module" }
-});
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 //#region \0rolldown/runtime.js
 var __create = Object.create;
 var __defProp = Object.defineProperty;
@@ -64,5 +61,4 @@ var WebUpdateNoticePlugin = class {
 };
 //#endregion
 exports.WebUpdateNoticePlugin = WebUpdateNoticePlugin;
-exports.default = WebUpdateNoticePlugin;
 exports.__toESM = __toESM;

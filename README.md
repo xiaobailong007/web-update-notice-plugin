@@ -43,7 +43,7 @@ yarn add @xiaobailong/web-update-notice-plugin -D
 // vite.config.ts
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import webUpdateNotice from '@xiaobailong/web-update-notice-plugin/vite';
+import { webUpdateNotice } from '@xiaobailong/web-update-notice-plugin/vite';
 
 export default defineConfig({
   plugins: [

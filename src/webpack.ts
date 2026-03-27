@@ -59,5 +59,3 @@ export class WebUpdateNoticePlugin {
     });
   }
 }
-
-export default WebUpdateNoticePlugin;

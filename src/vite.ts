@@ -30,5 +30,3 @@ export function webUpdateNotice(options: Options = {}): PluginOption {
     },
   };
 }
-
-export default webUpdateNotice;

@@ -27,4 +27,4 @@ function webUpdateNotice(options = {}) {
 	};
 }
 //#endregion
-export { webUpdateNotice as default, webUpdateNotice };
+export { webUpdateNotice };

@@ -1,7 +1,4 @@
-Object.defineProperties(exports, {
-	__esModule: { value: true },
-	[Symbol.toStringTag]: { value: "Module" }
-});
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
 const require_core = require("./core-7Bqx-wyY.cjs");
 //#region src/vite.ts
 function webUpdateNotice(options = {}) {
@@ -31,5 +28,4 @@ function webUpdateNotice(options = {}) {
 	};
 }
 //#endregion
-exports.default = webUpdateNotice;
 exports.webUpdateNotice = webUpdateNotice;

@@ -9,4 +9,4 @@ declare class WebUpdateNoticePlugin {
   apply(compiler: Compiler): void;
 }
 //#endregion
-export { WebUpdateNoticePlugin, WebUpdateNoticePlugin as default };
+export { WebUpdateNoticePlugin };

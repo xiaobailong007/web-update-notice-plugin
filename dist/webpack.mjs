@@ -36,4 +36,4 @@ var WebUpdateNoticePlugin = class {
 	}
 };
 //#endregion
-export { WebUpdateNoticePlugin, WebUpdateNoticePlugin as default };
+export { WebUpdateNoticePlugin };
