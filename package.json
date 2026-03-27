@@ -1,6 +1,6 @@
 {
   "name": "@xiaobailong/web-update-notice-plugin",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A plugin that notifies users to refresh the page when a new version is deployed. Supports Vite, Nuxt and Webpack.",
   "files": [
     "dist"
@@ -15,26 +15,116 @@
   },
   "typesVersions": {
     "*": {
-      "vite": ["./dist/vite.d.cts", "./dist/vite.d.mts"],
-      "nuxt": ["./dist/nuxt.d.cts", "./dist/nuxt.d.mts"],
-      "webpack": ["./dist/webpack.d.cts", "./dist/webpack.d.mts"]
+      "vite": [
+        "./dist/vite.d.cts",
+        "./dist/vite.d.mts"
+      ],
+      "nuxt": [
+        "./dist/nuxt.d.cts",
+        "./dist/nuxt.d.mts"
+      ],
+      "webpack": [
+        "./dist/webpack.d.cts",
+        "./dist/webpack.d.mts"
+      ]
     }
   },
   "size-limit": [
     {
       "path": "dist/vite.mjs",
       "limit": "10 kB",
-      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process", "string_decoder", "buffer", "net", "tls"]
+      "ignore": [
+        "node:*",
+        "path",
+        "fs",
+        "util",
+        "vm",
+        "crypto",
+        "events",
+        "url",
+        "module",
+        "tty",
+        "os",
+        "assert",
+        "stream",
+        "zlib",
+        "process",
+        "http",
+        "https",
+        "perf_hooks",
+        "querystring",
+        "constants",
+        "worker_threads",
+        "child_process",
+        "string_decoder",
+        "buffer",
+        "net",
+        "tls"
+      ]
     },
     {
       "path": "dist/nuxt.mjs",
       "limit": "100 kB",
-      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process", "string_decoder", "buffer", "net", "tls"]
+      "ignore": [
+        "node:*",
+        "path",
+        "fs",
+        "util",
+        "vm",
+        "crypto",
+        "events",
+        "url",
+        "module",
+        "tty",
+        "os",
+        "assert",
+        "stream",
+        "zlib",
+        "process",
+        "http",
+        "https",
+        "perf_hooks",
+        "querystring",
+        "constants",
+        "worker_threads",
+        "child_process",
+        "string_decoder",
+        "buffer",
+        "net",
+        "tls"
+      ]
     },
     {
       "path": "dist/webpack.mjs",
       "limit": "1 MB",
-      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process", "string_decoder", "buffer", "net", "tls"]
+      "ignore": [
+        "node:*",
+        "path",
+        "fs",
+        "util",
+        "vm",
+        "crypto",
+        "events",
+        "url",
+        "module",
+        "tty",
+        "os",
+        "assert",
+        "stream",
+        "zlib",
+        "process",
+        "http",
+        "https",
+        "perf_hooks",
+        "querystring",
+        "constants",
+        "worker_threads",
+        "child_process",
+        "string_decoder",
+        "buffer",
+        "net",
+        "tls"
+      ]
     }
   ],
   "exports": {
