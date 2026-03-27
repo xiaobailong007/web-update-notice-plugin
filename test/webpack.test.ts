@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import WebUpdateNoticePlugin from '../src/webpack';
+import { WebUpdateNoticePlugin } from '../src/webpack';
 
 describe('webpack plugin', () => {
   it('should be a class with apply method', () => {

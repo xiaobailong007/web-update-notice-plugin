@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import webUpdateNotice from '../src/vite';
+import { webUpdateNotice } from '../src/vite';
 
 describe('vite plugin', () => {
   it('should return a vite plugin object', () => {
