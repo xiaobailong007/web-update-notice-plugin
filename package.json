@@ -24,17 +24,17 @@
     {
       "path": "dist/vite.mjs",
       "limit": "10 kB",
-      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process"]
+      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process", "string_decoder", "buffer", "net", "tls"]
     },
     {
       "path": "dist/nuxt.mjs",
       "limit": "100 kB",
-      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process"]
+      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process", "string_decoder", "buffer", "net", "tls"]
     },
     {
       "path": "dist/webpack.mjs",
       "limit": "1 MB",
-      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process"]
+      "ignore": ["node:*", "path", "fs", "util", "vm", "crypto", "events", "url", "module", "tty", "os", "assert", "stream", "zlib", "process", "http", "https", "perf_hooks", "querystring", "constants", "worker_threads", "child_process", "string_decoder", "buffer", "net", "tls"]
     }
   ],
   "exports": {
