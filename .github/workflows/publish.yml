@@ -68,7 +68,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm run release
+          publish: npm publish --access public
           commit: "chore(release): version packages"
           title: "chore(release): version packages"
         env:
