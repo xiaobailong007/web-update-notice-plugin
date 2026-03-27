@@ -138,7 +138,7 @@ server {
 
 ## 关注公众号
 
-![公众号](https://cdn.xiaolong0418.com/app%2Fbase%2F1_1077902706_171_85_3_1093206066_098758147f2a9bb71af5a63ade20167e_fb7a1900ed7e491cb10375b6de613fca.png)
+![公众号](./assets/qrcode.png)
 
 ## 开源协议
 
