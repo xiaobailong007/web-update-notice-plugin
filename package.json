@@ -44,7 +44,8 @@
     "release": "changeset publish",
     "version": "changeset version",
     "clean": "rimraf dist node_modules pnpm-lock.yaml",
-    "up": "pnpm run clean && pnpm update --latest"
+    "up": "pnpm run clean && pnpm update --latest",
+    "changeset": "pnpm exec changeset"
   },
   "keywords": [
     "vite",
