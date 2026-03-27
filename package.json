@@ -1,6 +1,6 @@
 {
   "name": "@xiaobailong/web-update-notice-plugin",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A plugin that notifies users to refresh the page when a new version is deployed. Supports Vite, Nuxt and Webpack.",
   "files": [
     "dist"
