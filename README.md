@@ -28,9 +28,9 @@
 ```bash
 npm install @xiaobailong/web-update-notice-plugin -D
 # 或者
-pnpm add @xiaobailong/web-update-notice-plugin -D
-# 或者
 yarn add @xiaobailong/web-update-notice-plugin -D
+# 或者
+pnpm add @xiaobailong/web-update-notice-plugin -D
 ```
 
 ## 🚀 使用方法
