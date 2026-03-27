@@ -140,7 +140,7 @@ server {
 
 | 微信公众号 | 作者微信 |
 | :---: | :---: |
-| ![公众号](https://raw.githubusercontent.com/xiaobailong007/web-update-notice-plugin/main/assets/WeChatOfficialAccount.jpg) | ![微信](https://raw.githubusercontent.com/xiaobailong007/web-update-notice-plugin/main/assets/WeChat.png) |
+| <img src="https://raw.githubusercontent.com/xiaobailong007/web-update-notice-plugin/main/assets/WeChatOfficialAccount.jpg" alt="微信公众号" width="250" /> | <img src="https://raw.githubusercontent.com/xiaobailong007/web-update-notice-plugin/main/assets/WeChat.png" alt="作者微信" width="250" /> |
 
 ## 开源协议
 
