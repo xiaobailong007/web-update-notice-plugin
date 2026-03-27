@@ -1,5 +1,11 @@
 # @xiaobailong/web-update-notice-plugin
 
+## 2.0.8
+
+### Patch Changes
+
+- 2f8bff6: 2.0.8
+
 ## 2.0.6
 
 ### Patch Changes
