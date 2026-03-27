@@ -1,5 +1,11 @@
 # @xiaobailong/web-update-notice-plugin
 
+## 2.0.6
+
+### Patch Changes
+
+- 6239c83: 更新
+
 ## 2.0.5
 
 ### Patch Changes
