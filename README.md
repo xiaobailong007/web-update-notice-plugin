@@ -138,7 +138,7 @@ server {
 
 ## 关注公众号
 
-![公众号](./assets/qrcode.png)
+![公众号](https://raw.githubusercontent.com/xiaobailong007/web-update-notice-plugin/main/assets/qrcode.png)
 
 ## 开源协议
 
