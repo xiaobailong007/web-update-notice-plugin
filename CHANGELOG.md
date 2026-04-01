@@ -1,5 +1,11 @@
 # @xiaobailong/web-update-notice-plugin
 
+## 2.0.9
+
+### Patch Changes
+
+- 176a6fb: 自定义弹框
+
 ## 2.0.8
 
 ### Patch Changes

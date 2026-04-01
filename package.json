@@ -1,6 +1,6 @@
 {
   "name": "@xiaobailong/web-update-notice-plugin",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "🔔 一款网页更新通知插件，在系统发布新版本时自动提醒用户刷新页面 🔄。全面支持 Vite、Nuxt 和 Webpack 生态 ⚡。",
   "files": [
     "dist"
