@@ -17,32 +17,35 @@ function scriptTemplate(version, options) {
 			if (document.getElementById("update-notification")) return;
 			const div = document.createElement("div");
 			div.id = "update-notification";
-			div.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; box-shadow: 0 12px 48px rgba(0,0,0,0.15); border-radius: 16px; padding: 32px; z-index: 99999; display: flex; flex-direction: column; align-items: center; gap: 20px; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif; min-width: 340px; text-align: center;";
-			div.innerHTML = `
-          <div style="width: 64px; height: 64px; background: #ecf5ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px;">
-              🚀
-          </div>
-          <div style="display: flex; flex-direction: column; gap: 8px;">
-              <div style="font-size: 20px; font-weight: 600; color: #303133;">${titleText}</div>
-              <div style="font-size: 14px; color: #606266;">${descText}</div>
-          </div>
-          ${autoRefresh ? `
-          <div style="width: 100%; height: 4px; background: #f2f3f5; border-radius: 2px; overflow: hidden; margin-top: 8px;">
-              <div id="update-progress-bar" style="height: 100%; background: #409eff; animation: progress 5s linear forwards;"></div>
-          </div>
-          ` : ""}
-          ${showButtons ? `
-          <div style="display: flex; gap: 12px; margin-top: 12px; width: 100%;">
-              <button id="update-cancel-btn" style="flex: 1; padding: 8px 16px; border: 1px solid #dcdfe6; background: #fff; color: #606266; border-radius: 4px; cursor: pointer; font-size: 14px; transition: all 0.2s;">${cancelText}</button>
-              <button id="update-confirm-btn" style="flex: 1; padding: 8px 16px; border: none; background: #409eff; color: #fff; border-radius: 4px; cursor: pointer; font-size: 14px; transition: all 0.2s;">${confirmText}</button>
-          </div>
-          ` : ""}
-          <style>
-              @keyframes progress { from { width: 0%; } to { width: 100%; } }
-              #update-cancel-btn:hover { background: #f5f7fa; color: #409eff; border-color: #c6e2ff; }
-              #update-confirm-btn:hover { background: #66b1ff; }
-          </style>
-      `;
+			if (options.customNotificationHTML) div.innerHTML = options.customNotificationHTML;
+			else {
+				div.style.cssText = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; box-shadow: 0 12px 48px rgba(0,0,0,0.15); border-radius: 16px; padding: 32px; z-index: 99999; display: flex; flex-direction: column; align-items: center; gap: 20px; font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif; min-width: 340px; text-align: center;";
+				div.innerHTML = `
+            <div style="width: 64px; height: 64px; background: #ecf5ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px;">
+                🚀
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="font-size: 20px; font-weight: 600; color: #303133;">${titleText}</div>
+                <div style="font-size: 14px; color: #606266;">${descText}</div>
+            </div>
+            ${autoRefresh ? `
+            <div style="width: 100%; height: 4px; background: #f2f3f5; border-radius: 2px; overflow: hidden; margin-top: 8px;">
+                <div id="update-progress-bar" style="height: 100%; background: #409eff; animation: progress 5s linear forwards;"></div>
+            </div>
+            ` : ""}
+            ${showButtons ? `
+            <div style="display: flex; gap: 12px; margin-top: 12px; width: 100%;">
+                <button id="update-cancel-btn" style="flex: 1; padding: 8px 16px; border: 1px solid #dcdfe6; background: #fff; color: #606266; border-radius: 4px; cursor: pointer; font-size: 14px; transition: all 0.2s;">${cancelText}</button>
+                <button id="update-confirm-btn" style="flex: 1; padding: 8px 16px; border: none; background: #409eff; color: #fff; border-radius: 4px; cursor: pointer; font-size: 14px; transition: all 0.2s;">${confirmText}</button>
+            </div>
+            ` : ""}
+            <style>
+                @keyframes progress { from { width: 0%; } to { width: 100%; } }
+                #update-cancel-btn:hover { background: #f5f7fa; color: #409eff; border-color: #c6e2ff; }
+                #update-confirm-btn:hover { background: #66b1ff; }
+            </style>
+        `;
+			}
 			document.body.appendChild(div);
 			let countdown = 5;
 			const countdownEl = document.getElementById("update-countdown");
@@ -77,7 +80,12 @@ function scriptTemplate(version, options) {
 			}).then((data) => {
 				if (data.version && data.version !== initialVersion && !hasShownUpdate) {
 					hasShownUpdate = true;
-					showNotification();
+					const event = new CustomEvent("plugin-web-update-notice", { detail: {
+						version: data.version,
+						options
+					} });
+					window.dispatchEvent(event);
+					if (!options.hiddenDefaultNotification) showNotification();
 				}
 			}).catch((err) => {
 				console.warn("Failed to check version:", err);

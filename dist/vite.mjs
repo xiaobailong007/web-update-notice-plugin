@@ -1,4 +1,4 @@
-import { t as generateScript } from "./core-By7uh7u6.mjs";
+import { t as generateScript } from "./core-D2NzHBXh.mjs";
 //#region src/vite.ts
 function webUpdateNotice(options = {}) {
 	let version;

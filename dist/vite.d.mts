@@ -1,4 +1,4 @@
-import { t as Options } from "./core-CMifEKFm.mjs";
+import { t as Options } from "./core-C4RtW6jP.mjs";
 import { PluginOption } from "vite";
 
 //#region src/vite.d.ts

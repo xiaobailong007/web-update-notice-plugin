@@ -38,4 +38,17 @@ describe('core', () => {
     expect(script).toContain('"autoRefresh":false');
     expect(script).toContain('"showButtons":false');
   });
+
+  it('should include hiddenDefaultNotification and customNotificationHTML in the generated script', () => {
+    const version = '3.0.0';
+    const options = {
+      hiddenDefaultNotification: true,
+      customNotificationHTML: '<div id="custom-update">Update!</div>'
+    };
+    const script = generateScript(version, options);
+    
+    expect(script).toContain('3.0.0');
+    expect(script).toContain('"hiddenDefaultNotification":true');
+    expect(script).toContain('<div id=\\"custom-update\\">Update!</div>');
+  });
 });

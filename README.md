@@ -111,6 +111,8 @@ Vite、Nuxt 和 Webpack 的实现共享以下配置选项：
 | `autoRefresh` | `boolean` | `true` | 发现更新时是否显示倒计时进度条并在结束后自动刷新页面。设为 `false` 则强制用户手动点击刷新。 |
 | `showButtons` | `boolean` | `true` | 是否在通知弹窗中显示“稍后更新”和“立即刷新”操作按钮。 |
 | `text` | `object` | `{}` | 自定义弹窗 UI 的所有文本内容（详情见下方说明）。 |
+| `hiddenDefaultNotification` | `boolean` | `false` | 是否隐藏默认的通知弹窗。设为 `true` 时，你可以通过监听 `plugin-web-update-notice` 自定义事件来实现完全自定义的 UI。 |
+| `customNotificationHTML` | `string` | `undefined` | 自定义通知弹窗的 HTML 字符串。如果提供，将替换默认的弹窗 HTML 内容。 |
 
 ### 📝 自定义文案配置 (`text`)
 
@@ -124,6 +126,43 @@ webUpdateNotice({
     cancel: '稍后更新', // 取消/忽略按钮文案
     confirm: '立即刷新' // 确认刷新按钮文案
   }
+})
+```
+
+### 🎨 完全自定义弹框
+
+如果你希望使用 Vue/React 组件或完全自定义的 HTML 来实现更新通知弹框，可以设置 `hiddenDefaultNotification: true`，然后在你的应用代码中监听 `plugin-web-update-notice` 自定义事件：
+
+```typescript
+// vite.config.ts
+webUpdateNotice({
+  hiddenDefaultNotification: true
+})
+```
+
+在你的应用入口文件（如 `main.ts` 或 `App.vue`）中监听事件：
+
+```javascript
+window.addEventListener('plugin-web-update-notice', (e) => {
+  const { version, options } = e.detail;
+  console.log('发现新版本:', version);
+  
+  // 在这里触发你的自定义弹框组件显示
+  // 例如：ElMessageBox.confirm('发现新版本，是否刷新？').then(() => window.location.reload());
+});
+```
+
+或者，你也可以只替换弹框内部的 HTML，保持外层样式不变：
+
+```typescript
+webUpdateNotice({
+  customNotificationHTML: `
+    <div style="padding: 20px; color: red;">
+      <h2>🚨 强制更新</h2>
+      <p>系统必须更新才能继续使用！</p>
+      <button onclick="window.location.reload()">立刻刷新</button>
+    </div>
+  `
 })
 ```
 

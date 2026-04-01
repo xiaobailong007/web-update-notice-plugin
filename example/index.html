@@ -19,8 +19,28 @@
     </ol>
   </div>
   
+  <div id="custom-dialog" style="display: none; position: fixed; top: 20px; right: 20px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; z-index: 9999;">
+    <h3 style="margin-top: 0; color: #10b981;">🎉 发现新版本！</h3>
+    <p style="margin-bottom: 15px;">当前版本: <span id="current-version"></span> <br/> 新版本: <span id="new-version"></span></p>
+    <button onclick="window.location.reload()" style="background: #10b981; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">立即更新体验</button>
+    <button onclick="document.getElementById('custom-dialog').style.display = 'none'" style="background: transparent; border: 1px solid #d1d5db; padding: 8px 16px; border-radius: 4px; cursor: pointer; margin-left: 10px;">暂时忽略</button>
+  </div>
+  
   <script type="module">
     console.log("演示页面已加载");
+
+    // 监听自定义更新事件
+    window.addEventListener('plugin-web-update-notice', (e) => {
+      console.log('收到更新通知:', e.detail);
+      
+      const dialog = document.getElementById('custom-dialog');
+      const newVersionEl = document.getElementById('new-version');
+      
+      if (dialog && newVersionEl) {
+        newVersionEl.textContent = e.detail.version;
+        dialog.style.display = 'block';
+      }
+    });
   </script>
 </body>
 </html>

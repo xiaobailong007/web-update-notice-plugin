@@ -29,6 +29,15 @@ interface Options {
     cancel?: string;
     confirm?: string;
   };
+  /**
+   * Whether to hide the default notification. Set to true if you want to use a custom dialog by listening to 'plugin-web-update-notice' event.
+   * @default false
+   */
+  hiddenDefaultNotification?: boolean;
+  /**
+   * Custom notification HTML string.
+   */
+  customNotificationHTML?: string;
 }
 //#endregion
 export { Options as t };
